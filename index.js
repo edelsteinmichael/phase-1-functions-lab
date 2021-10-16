@@ -28,18 +28,19 @@ function distanceTravelledInFeet(startingBlock, destinationBlock) {
     }
 }
 
-let free = 0
+
 function calculatesFarePrice(beginPoint, endPoint) {
-    let distanceInFt = (endPoint - beginPoint * 264)
-    if (distanceInFt < 400) {
-        return free 
-     }
-    else if (beginPoint > endPoint) {
-        distanceInFt = (beginPoint - endPoint *264)     
-     (distanceInFt - 400 > 400 && distanceInFt - 400 < 2000)
+    let distanceInFt = distanceTravelledInFeet(beginPoint, endPoint)
+    if (distanceInFt <= 400) {
+        return 0
+    }
+    else if (distanceInFt <= 2000 && distanceInFt > 400) {
         return (distanceInFt - 400) * 0.02
     }
-    
+    else if (distanceInFt > 2000 && distanceInFt < 2500) {
+        return 25
+    }
+    else {return "cannot travel that far"}
 }
 
 
